@@ -38,3 +38,13 @@ public class StackOperations {
         }
         System.out.println("Top element: " + stack[top]);
     }
+public void display() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty.");
+            return;
+        }
+        System.out.println("Stack (top to bottom):");
+        for (int i = top; i >= 0; i--) {
+            System.out.println("| " + stack[i] + " |");
+        }
+    }
