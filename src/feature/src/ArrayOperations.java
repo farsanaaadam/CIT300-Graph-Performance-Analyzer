@@ -46,3 +46,23 @@ public class ArrayOperations {
         System.out.println(value + " deleted.");
         return true;
     }
+public void display() {
+        if (size == 0) {
+            System.out.println("Array is empty.");
+            return;
+        }
+        System.out.print("Array: ");
+        for (int i = 0; i < size; i++) {
+            System.out.print(data[i] + " ");
+        }
+        System.out.println();
+    }
+
+    // Copy of used part of the array (used by searching)
+    public int[] toArray() {
+        return Arrays.copyOf(data, size);
+    }
+
+    public int getSize() {
+        return size;
+    }
