@@ -45,3 +45,31 @@ public class Graph {
             System.out.println(e.getKey() + " -> " + e.getValue());
         }
     }
+
+    // BFS using Queue - O(V + E). Returns steps count
+    public int bfs(int start) {
+        if (!hasVertex(start)) {
+            System.out.println("Start vertex not found.");
+            return 0;
+        }
+        Set<Integer> visited = new HashSet<>();
+        Queue<Integer> queue = new LinkedList<>();
+        int steps = 0;
+        visited.add(start);
+        queue.add(start);
+        System.out.print("BFS: ");
+        while (!queue.isEmpty()) {
+            int v = queue.poll();
+            steps++;                         // visiting a vertex
+            System.out.print(v + " ");
+            for (int n : adj.get(v)) {
+                steps++;                     // checking an edge
+                if (!visited.contains(n)) {
+                    visited.add(n);
+                    queue.add(n);
+                }
+            }
+        }
+        System.out.println();
+        return steps;
+    }
