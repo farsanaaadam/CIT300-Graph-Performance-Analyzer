@@ -20,3 +20,29 @@ public class ArrayOperations {
         return true;
     }
 }
+// Simple linear search - returns index or -1
+    public int search(int value) {
+        for (int i = 0; i < size; i++) {
+            if (data[i] == value) return i;
+        }
+        return -1;
+    }
+
+    // Delete first occurrence of value - O(n)
+    public boolean delete(int value) {
+        if (size == 0) {
+            System.out.println("Array is empty! Nothing to delete.");
+            return false;
+        }
+        int index = search(value);
+        if (index == -1) {
+            System.out.println(value + " not found.");
+            return false;
+        }
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i + 1];   // shift left
+        }
+        size--;
+        System.out.println(value + " deleted.");
+        return true;
+    }
