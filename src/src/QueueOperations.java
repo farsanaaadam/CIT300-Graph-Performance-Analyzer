@@ -24,3 +24,13 @@ public class QueueOperations {
         System.out.println(value + " enqueued.");
     }
 }
+// O(1)
+    public void dequeue() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty! Cannot dequeue.");
+            return;
+        }
+        System.out.println(queue[front] + " dequeued.");
+        front = (front + 1) % queue.length;
+        count--;
+    }
