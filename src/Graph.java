@@ -35,3 +35,13 @@ public class Graph {
         System.out.println("Edge " + a + " - " + b + " added.");
     }
 }
+
+    public void display() {
+        if (adj.isEmpty()) {
+            System.out.println("Graph is empty.");
+            return;
+        }
+        for (Map.Entry<Integer, List<Integer>> e : adj.entrySet()) {
+            System.out.println(e.getKey() + " -> " + e.getValue());
+        }
+    }
