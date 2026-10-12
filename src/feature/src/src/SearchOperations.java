@@ -10,3 +10,15 @@ public class SearchOperations {
         return new int[]{-1, steps};
     }
 }
+// Binary Search - O(log n). Array MUST be sorted. Returns {index, steps}
+    public static int[] binarySearch(int[] arr, int key) {
+        int low = 0, high = arr.length - 1, steps = 0;
+        while (low <= high) {
+            steps++;
+            int mid = (low + high) / 2;
+            if (arr[mid] == key) return new int[]{mid, steps};
+            if (arr[mid] < key) low = mid + 1;
+            else high = mid - 1;
+        }
+        return new int[]{-1, steps};
+    }
