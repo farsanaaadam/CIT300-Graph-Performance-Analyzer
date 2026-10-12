@@ -72,3 +72,35 @@ public class LinkedListOperations {
             System.out.println(value + " deleted.");
         }
     }
+// Search - O(n)
+    public void search(int value) {
+        if (head == null) {
+            System.out.println("List is empty.");
+            return;
+        }
+        Node current = head;
+        int position = 1;
+        while (current != null) {
+            if (current.data == value) {
+                System.out.println(value + " found at position " + position);
+                return;
+            }
+            current = current.next;
+            position++;
+        }
+        System.out.println(value + " not found.");
+    }
+
+    public void display() {
+        if (head == null) {
+            System.out.println("List is empty.");
+            return;
+        }
+        Node current = head;
+        System.out.print("Linked List: ");
+        while (current != null) {
+            System.out.print(current.data + " -> ");
+            current = current.next;
+        }
+        System.out.println("null");
+    }
