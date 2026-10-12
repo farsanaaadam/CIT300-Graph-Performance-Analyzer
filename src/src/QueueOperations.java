@@ -34,3 +34,22 @@ public class QueueOperations {
         front = (front + 1) % queue.length;
         count--;
     }
+public void peek() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty.");
+            return;
+        }
+        System.out.println("Front element: " + queue[front]);
+    }
+
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty.");
+            return;
+        }
+        System.out.print("Queue (front to rear): ");
+        for (int i = 0; i < count; i++) {
+            System.out.print(queue[(front + i) % queue.length] + " ");
+        }
+        System.out.println();
+    }
