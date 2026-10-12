@@ -20,3 +20,21 @@ public class StackOperations {
         System.out.println(value + " pushed.");
     }
 }
+
+// O(1)
+    public void pop() {
+        if (isEmpty()) {
+            System.out.println("Stack Underflow! Stack is empty.");
+            return;
+        }
+        System.out.println(stack[top--] + " popped.");
+    }
+
+    // O(1)
+    public void peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty.");
+            return;
+        }
+        System.out.println("Top element: " + stack[top]);
+    }
