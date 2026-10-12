@@ -73,3 +73,29 @@ public class Graph {
         System.out.println();
         return steps;
     }
+
+    // DFS using recursion - O(V + E). Returns steps count
+    public int dfs(int start) {
+        if (!hasVertex(start)) {
+            System.out.println("Start vertex not found.");
+            return 0;
+        }
+        Set<Integer> visited = new HashSet<>();
+        int[] steps = {0};
+        System.out.print("DFS: ");
+        dfsHelper(start, visited, steps);
+        System.out.println();
+        return steps[0];
+    }
+
+    private void dfsHelper(int v, Set<Integer> visited, int[] steps) {
+        visited.add(v);
+        steps[0]++;                          // visiting a vertex
+        System.out.print(v + " ");
+        for (int n : adj.get(v)) {
+            steps[0]++;                      // checking an edge
+            if (!visited.contains(n)) {
+                dfsHelper(n, visited, steps);
+            }
+        }
+    }
